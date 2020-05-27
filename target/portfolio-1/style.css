@@ -1,0 +1,78 @@
+#content {
+  margin-left: auto;
+  margin-right: auto;
+  width: 650px;
+}
+
+.heading-wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 38px;
+}
+
+.left-heading {
+    display: flex;
+}
+
+/*Traverse a tree in css... any styles this class is going to give
+will be place on the divs in left-side. However, this is not necessary in this
+situation
+as all the divs under left-heading are the same class.
+
+Why this is useful:
+- different divs under parent class
+- only makes changes to these class instances under parent. For example,
+if I a class instance in multiple places, but I want to make changes under a
+curtain parent.
+traversing will be the way to go.
+
+.heading-wrapper > .left-heading > div {
+    margin-right: 20px;
+    font-size: 0.9em;
+} */
+
+.nav-link-wrapper{
+    margin-right: 20px;
+    font-size: 0.9em;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(port_images/IMG-1485.GIF);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow-y: auto;
+}
+.heading-container {
+    
+}
+
+
+
+#greeting-container {
+  margin-top: 20px;
+}
+
+/*
+#left-heading{
+
+}
+
+#right-heading{
+    
+} */
+
+.background {
+    width: 100%;
+    height: 100%;
+    background-image: url(port_images/IMG-1485.GIF);
+    background-repeat: repeat;
+    overflow-y: auto;
+}
+/*
+
+.nav {
+
+}
