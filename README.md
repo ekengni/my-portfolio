@@ -1,4 +1,4 @@
-This directory is where you'll write all of your code!
+This directory is lies my week-1 portfolio project
 
 By default it contains a barebones web app. To run a local server, execute this
 command:
