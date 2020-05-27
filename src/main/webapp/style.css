@@ -14,15 +14,15 @@
     display: flex;
 }
 
-/*Traverse a tree in css... any styles this class is going to give
-will be place on the divs in left-side. However, this is not necessary in this
-situation
-as all the divs under left-heading are the same class.
+/*Traverse a tree in css... any styles this class was going to apply
+will be place on the divs under 'left-side.' However, this is not necessary
+in this situation as all the divs under 'left-heading' are instances of the
+same class.
 
 Why this is useful:
 - different divs under parent class
 - only makes changes to these class instances under parent. For example,
-if I a class instance in multiple places, but I want to make changes under a
+If I have a class instance in multiple places, but I want to make changes under a
 curtain parent.
 traversing will be the way to go.
 
@@ -42,9 +42,10 @@ body {
     background-image: url(port_images/IMG-1485.GIF);
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
+    position: center;
     overflow-y: auto;
 }
+
 .heading-container {
     
 }
