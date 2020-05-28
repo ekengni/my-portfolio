@@ -37,7 +37,7 @@ traversing will be the way to go.
 }
 
 body {
-    margin: 0;
+   margin: 0;
     padding: 0;
     background-image: url(port_images/IMG-1485.GIF);
     background-repeat: no-repeat;
@@ -47,9 +47,24 @@ body {
 }
 
 .heading-container {
+
+}
+
+.gallery{
+    margin: 10px 50px;
     
 }
 
+.gallery img{
+    transition: 2s;
+    width: 200px;
+    padding: 14px; 
+}
+
+.gallery img:hover{
+    filter: grayscale(90%);
+    transform:(1.5);
+}
 
 
 #quote-container {
@@ -66,10 +81,12 @@ body {
 } */
 
 .background {
-    width: 100%;
-    height: 100%;
+    margin: 0;
+    padding: 0;
     background-image: url(port_images/IMG-1485.GIF);
-    background-repeat: repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: center;
     overflow-y: auto;
 }
 
