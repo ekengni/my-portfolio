@@ -52,7 +52,7 @@ body {
 
 
 
-#greeting-container {
+#quote-container {
   margin-top: 20px;
 }
 
@@ -72,6 +72,7 @@ body {
     background-repeat: repeat;
     overflow-y: auto;
 }
+
 /*
 
 .nav {
