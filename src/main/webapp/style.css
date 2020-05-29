@@ -64,9 +64,6 @@ traversing will be the way to go.
     color: black;
 }
 
-
-
-
 .gallery{
     margin: 10px 50px;
 }
@@ -84,11 +81,9 @@ traversing will be the way to go.
 
 }
 
-
 #quote-container {
   margin-top: 20px;
 }
-
 
 .background {
     margin: 0;
