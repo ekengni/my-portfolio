@@ -11,6 +11,27 @@
     display: flex;
 }
 
+button{
+    display: inline-block;
+    width:200px;
+    font-weight: bold;
+    padding:10px;
+    color: #fff;
+    border: 4px solid #fff;
+    background-color: transparent;
+    text-align: center;
+    outline: none;
+    text-decoration:none;
+    transition: background-color 0.15s ease-out, color 0.15s ease-out;
+    font-family: "Ubuntu";
+    }
+
+button:active, button:hover{
+    background-color: #fff;
+    color: #000;
+    transition: background-color 0.3s ease-in, color 0.3s ease-in;
+    }
+
 /*Traverse a tree in css... any styles this class was going to apply
 will be place on the divs under 'left-side.' However, this is not necessary
 in this situation as all the divs under 'left-heading' are instances of the
@@ -46,14 +67,15 @@ traversing will be the way to go.
     color: black;
     text-decoration: none;
     transition: color 0.5s;
+    font-family: "Chelsea Market", sans-serif;
 }
 
 .nav-link-wrapper:hover{
-	border-bottom: 3px solid gainsboro;
+  border-bottom: 3px solid white;
 }
 
 .nav-link-wrapper a:hover{
-    color: gainsboro;
+  color: white;
 }
 
 .gallery{
@@ -74,6 +96,7 @@ traversing will be the way to go.
 }
 
 #quote-container {
+  
   margin-top: 20px;
 }
 
