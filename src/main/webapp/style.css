@@ -71,15 +71,12 @@ traversing will be the way to go.
 }
 
 .nav-link-wrapper:hover{
-	border-bottom: 3px solid white;
+  border-bottom: 3px solid white;
 }
 
 .nav-link-wrapper a:hover{
-    color: white;
+  color: white;
 }
-
-
-
 
 .gallery{
     margin: 10px 50px;
@@ -98,12 +95,10 @@ traversing will be the way to go.
 
 }
 
-
 #quote-container {
   
   margin-top: 20px;
 }
-
 
 .background {
     margin: 0;
