@@ -1,18 +1,36 @@
+
 #content {
   margin-left: auto;
   margin-right: auto;
   width: 650px;
 }
 
-.heading-wrapper{
-    display: flex;
-    justify-content: space-between;
-    padding: 38px;
-}
+
 
 .left-heading {
     display: flex;
 }
+
+button{
+    display: inline-block;
+    width:200px;
+    font-weight: bold;
+    padding:10px;
+    color: #fff;
+    border: 4px solid #fff;
+    background-color: transparent;
+    text-align: center;
+    outline: none;
+    text-decoration:none;
+    transition: background-color 0.15s ease-out, color 0.15s ease-out;
+    font-family: "Ubuntu";
+    }
+
+button:active, button:hover{
+    background-color: #fff;
+    color: #000;
+    transition: background-color 0.3s ease-in, color 0.3s ease-in;
+    }
 
 /*Traverse a tree in css... any styles this class was going to apply
 will be place on the divs under 'left-side.' However, this is not necessary
@@ -31,12 +49,63 @@ traversing will be the way to go.
     font-size: 0.9em;
 } */
 
-.nav-link-wrapper{
-    margin-right: 20px;
-    font-size: 0.9em;
+
+.heading-wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 38px;  
 }
 
-body {
+.nav-link-wrapper{
+    margin-right: 20px;
+    height: 22px;
+    border-bottom: 3px solid transparent;
+    transition: border-bottom 0.5s;
+}
+
+.nav-link-wrapper a {
+    color: black;
+    text-decoration: none;
+    transition: color 0.5s;
+    font-family: "Chelsea Market", sans-serif;
+}
+
+.nav-link-wrapper:hover{
+	border-bottom: 3px solid white;
+}
+
+.nav-link-wrapper a:hover{
+    color: white;
+}
+
+
+
+
+.gallery{
+    margin: 10px 50px;
+}
+
+.gallery img{
+    transition: 2s;
+    width: 200px;
+    padding: 14px;
+}
+
+.gallery img:hover{
+    filter: grayscale(90%);
+    transform:(1.5);
+    border-bottom: 3px solid transparent;
+
+}
+
+
+#quote-container {
+  
+  margin-top: 20px;
+}
+
+
+.background {
     margin: 0;
     padding: 0;
     background-image: url(port_images/IMG-1485.GIF);
@@ -46,35 +115,3 @@ body {
     overflow-y: auto;
 }
 
-.heading-container {
-    
-}
-
-
-
-#quote-container {
-  margin-top: 20px;
-}
-
-/*
-#left-heading{
-
-}
-
-#right-heading{
-    
-} */
-
-.background {
-    width: 100%;
-    height: 100%;
-    background-image: url(port_images/IMG-1485.GIF);
-    background-repeat: repeat;
-    overflow-y: auto;
-}
-
-/*
-
-.nav {
-
-}

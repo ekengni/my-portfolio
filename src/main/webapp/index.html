@@ -4,12 +4,60 @@
     <meta charset = "UTF-8">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link 
+    href="https://fonts.googleapis.com/css2?family=Manrope&family=Ubuntu&family=Chelsea+Market&display=swap"
+    rel="stylesheet">
+    
     <script src="script.js"></script>
+    <style>
+    body {
+   	  margin: 0;
+     /* background-image: url(port_images/IMG-1485.GIF); */
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: center;
+      overflow-y: auto;
+    }
+
+    
+
+   .hero-image {
+      background: url(port_images/over-the-rail.jpg) no-repeat center; 
+      background-size: cover;
+      height: 900px;
+      position: relative;
+    }
+
+	.hero-text {
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+	}
+
+    h1{
+      font-size: 7em;
+      font-family: "Chelsea Market";
+    }
+
+    h2{
+     margin-top: -17px;
+     font-family: "Ubuntu";
+     font-size:1.7em;
+     text-align:center;
+     font-weight:200;
+    }
+    </style>
   </head>
   <body> 
-    <div class = "heading-container">
+    <div class = "hero-image">  
       <div class = "heading-wrapper">
         <div class = "left-heading">
+          <div class = "nav-link-wrapper">
+            <a href = "index.html"> Portfolio </a>
+          </div>
           <div class = "nav-link-wrapper">
             <a href = "about_me.html"> About Me </a>
           </div>
@@ -24,13 +72,15 @@
           <div>Erick Kengni</div>
         </div>
       </div>
+      <div class = "hero-text">
+        <h1 style ="font-size:50px">This is my Portfolio</h1>
+        <h2>Words of Wisdom:</h2>
+        <div id="content">
+          <button onclick="addRandomAnimeQuote()">Guidance</button>
+          <div id="quote-container"></div>
+        </div>
+      </div>
     </div>
-    <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get an inspirational message: </p>
-      <button onclick="addRandomAnimeQuote()">Hello</button>
-      <div id="quote-container"></div>
-    </div>
+   
   </body>
 </html>
