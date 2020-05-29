@@ -1,11 +1,3 @@
-body {
-   	margin: 0;
-    background-image: url(port_images/IMG-1485.GIF);
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: center;
-    overflow-y: auto;
-}
 
 #content {
   margin-left: auto;
