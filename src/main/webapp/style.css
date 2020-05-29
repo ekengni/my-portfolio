@@ -55,6 +55,24 @@ traversing will be the way to go.
     justify-content: space-between;
     padding: 38px;  
 }
+h1{
+    font-size: 7em;
+    font-family: "Chelsea Market";
+}
+
+h2{
+    margin-top: -17px;
+    font-family: "Ubuntu";
+    font-size:1.7em;
+    text-align:center;
+    font-weight:200;
+}
+
+p{
+ 
+}
+
+
 
 .nav-link-wrapper{
     margin-right: 20px;

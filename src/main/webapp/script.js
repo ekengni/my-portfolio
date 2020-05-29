@@ -21,7 +21,10 @@ function addRandomAnimeQuote() {
        "Don't give up, there's no shame in falling down!",
        "BELIEVE IT!",
        "If a miracle only happens once, " + 
-       "then what is it called the second time?"]
+       "then what is it called the second time?",
+       "If you don't like the hand that fate's dealt you wiht, fight for a new one!",
+       "What's the difference between a king and his horse? INSTINCT!!",
+       "Sometimes, we have to look beyond what we want and do what's best.",]
   // Pick a random greeting.
   const quote = quotes[Math.floor(Math.random() * quotes.length)];
 
