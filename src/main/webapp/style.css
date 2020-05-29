@@ -1,14 +1,19 @@
+body {
+   	margin: 0;
+    background-image: url(port_images/IMG-1485.GIF);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: center;
+    overflow-y: auto;
+}
+
 #content {
   margin-left: auto;
   margin-right: auto;
   width: 650px;
 }
 
-.heading-wrapper{
-    display: flex;
-    justify-content: space-between;
-    padding: 38px;
-}
+
 
 .left-heading {
     display: flex;
@@ -31,39 +36,52 @@ traversing will be the way to go.
     font-size: 0.9em;
 } */
 
+
+.heading-wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 38px;  
+}
+
 .nav-link-wrapper{
     margin-right: 20px;
-    font-size: 0.9em;
+    height: 22px;
+    border-bottom: 3px solid transparent;
+    transition: border-bottom 0.5s;
 }
 
-body {
-   margin: 0;
-    padding: 0;
-    background-image: url(port_images/IMG-1485.GIF);
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: center;
-    overflow-y: auto;
+.nav-link-wrapper a {
+    color: plum;
+    text-decoration: none;
+    transition: color 0.5s;
 }
 
-.heading-container {
-
+.nav-link-wrapper:hover{
+	border-bottom: 3px solid black;
 }
+
+.nav-link-wrapper a:hover{
+    color: black;
+}
+
+
+
 
 .gallery{
     margin: 10px 50px;
-    
 }
 
 .gallery img{
     transition: 2s;
     width: 200px;
-    padding: 14px; 
+    padding: 14px;
 }
 
 .gallery img:hover{
     filter: grayscale(90%);
     transform:(1.5);
+    border-bottom: 3px solid transparent;
+
 }
 
 
@@ -71,14 +89,6 @@ body {
   margin-top: 20px;
 }
 
-/*
-#left-heading{
-
-}
-
-#right-heading{
-    
-} */
 
 .background {
     margin: 0;
@@ -90,8 +100,3 @@ body {
     overflow-y: auto;
 }
 
-/*
-
-.nav {
-
-}
