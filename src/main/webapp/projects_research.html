@@ -7,6 +7,10 @@
      <link 
     href="https://fonts.googleapis.com/css2?family=Manrope&family=Ubuntu&family=Chelsea+Market&display=swap"
     rel="stylesheet">
+    <script 
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXkUx7syMfxIgcJ_DtFNeWSfn3MKjuaXQ" ></script>
+    <script src="script.js"></script>
+
   </head>
   <style>
     body{
@@ -17,9 +21,19 @@
         background-size: cover;
         position: center;
         overflow-y: auto;   
-        }
+    }
+
+    #map {
+        height: 500px;
+        width: 500px;
+        border: thin solid black;
+    }
+    
+    li, p {
+       font-family: "Ubuntu"
+     }   
   </style>    
-  <body>
+  <body onload="createMap();">
     <div class = "heading-container">
       <div class = "heading-wrapper">
         <div class = "left-heading">
@@ -45,6 +59,7 @@
     <h2> Google Maps API </h2>
     <p> This is where I will experimented with a an API.
         enjoy :D </p>
+    <div id="map"></div>
     </div>
   </body>
 </html>
