@@ -39,4 +39,26 @@ function createMap() {
       {center: {lat: 37.4220, lng: -122.084}, zoom: 16});
 }
 
+async function getGreetingAsyncAwait(){
+    const response = await fetch('/data');
+    const quote = await response.text();
+    document.getElementById('quote-container').innerText = quote;
+}
+
+function getServerMessages(){
+    fetch('/data').then(response => response.json()).then((messages) => {
+        const messagesListElement= document.getElementById('quote-container');
+        	var i;
+            for(i = 0; i < messages.length; i++){
+                messagesListElement.appendChild(
+                createListElement(messages[i]));
+            }
+    });
+}
+
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
+}
 
