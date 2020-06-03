@@ -48,11 +48,12 @@ async function getGreetingAsyncAwait(){
 function getServerMessages(){
     fetch('/data').then(response => response.json()).then((messages) => {
         const messagesListElement= document.getElementById('quote-container');
-        	var i;
-            for(i = 0; i < messages.length; i++){
-                messagesListElement.appendChild(
-                createListElement(messages[i]));
-            }
+        const numToDisplay = 4;
+        var i;
+        for(i = 0; i < Math.min(numToDisplay, messages.length); i++){
+            messagesListElement.appendChild(
+            createListElement(messages[i]));
+        }
     });
 }
 
