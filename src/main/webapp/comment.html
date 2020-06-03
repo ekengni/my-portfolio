@@ -1,43 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset = "UTF-8">
-    <title>My Portfolio</title>
+    <meta charset="UTF-8">
+    <title> About Me </title>
     <link rel="stylesheet" href="style.css">
     <link 
     href="https://fonts.googleapis.com/css2?family=Manrope&family=Ubuntu&family=Chelsea+Market&display=swap"
     rel="stylesheet">
-    <script src="script.js"></script>
+    <script src = "script.js"></script>
     <style>
     body {
-   	  margin: 0;
-      background-repeat: no-repeat;
-      background-size: cover;
-      position: center;
-      overflow-y: auto;
-    }
+   		margin: 0;
+    	background-image: url(port_images/IMG-1485.GIF);
+    	background-repeat: no-repeat;
+    	background-size: cover;
+    	position: center;
+    	overflow-y: auto;
+	    }
 
-    
+     h2{
+       font-family: "Chelsea Market" !important; 
+     }
 
-   .hero-image {
-      background: url(port_images/over-the-rail.jpg) no-repeat center; 
-      background-size: cover;
-      height: 900px;
-      position: relative;
-    }
-
-	.hero-text {
-      text-align: center;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-    }
+     li, p {
+       font-family: "Ubuntu"
+     }   
     </style>
   </head>
-  <body> 
-    <div class = "hero-image">  
+  <body>
+    <div class = "heading-container">
       <div class = "heading-wrapper">
         <div class = "left-heading">
           <div class = "nav-link-wrapper">
@@ -60,15 +51,13 @@
           <div>Erick Kengni</div>
         </div>
       </div>
-      <div class = "hero-text">
-        <h1 style ="font-size:50px">This is my Portfolio</h1>
-        <h2>Words of Wisdom:</h2>
-        <div id="content">
-          <button onclick="addRandomAnimeQuote()">Guidance</button>
-          <div id="quote-container"></div>
-        </div>
-      </div>
     </div>
-   
+    <h2> Please leave a Comment </h2>
+    <div id = "content">
+    <form action = "/data" method="POST">
+      <textarea name="comment-input" autofocus rows="6" cols="75" >:D</textarea>
+      <br/><br/>
+      <input type = "submit" />
+    </div>
+    </form>
   </body>
-</html>

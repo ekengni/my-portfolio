@@ -11,7 +11,7 @@
     display: flex;
 }
 
-button{
+button, input{
     display: inline-block;
     width:200px;
     font-weight: bold;
@@ -26,7 +26,7 @@ button{
     font-family: "Ubuntu";
     }
 
-button:active, button:hover{
+button:active, button:hover , input:active, input:hover{
     background-color: #fff;
     color: #000;
     transition: background-color 0.3s ease-in, color 0.3s ease-in;
@@ -67,12 +67,6 @@ h2{
     text-align:center;
     font-weight:200;
 }
-
-p{
- 
-}
-
-
 
 .nav-link-wrapper{
     margin-right: 20px;
