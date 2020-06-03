@@ -27,13 +27,15 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
   private List<String> messages = new ArrayList<>();
+  static final String comment_id = "comment-input";
+  static final String redirect_location = "/projects_research.html";
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    String comment = request.getParameter("comment-input");
+    String comment = request.getParameter(comment_id);
     messages.add(comment);
     response.setContentType("text/html;");
-    response.sendRedirect("/projects_research.html");
+    response.sendRedirect(redirect_location);
   }
 
   @Override
