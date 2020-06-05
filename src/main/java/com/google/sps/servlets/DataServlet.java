@@ -17,6 +17,7 @@ package com.google.sps.servlets;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
@@ -35,6 +36,28 @@ public class DataServlet extends HttpServlet {
   static final String comment_id = "comment-input";
   static final String redirect_location = "/comment.html";
   private List <String> comments;
+  
+  
+  @Override
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException { 
+    Query query = new Query("Message").addSort("timestamp", SortDirection.DESCENDING);
+    
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    PreparedQuery results = datastore.prepare(query);
+
+    int num_entities = results.countEntities();
+    int comment_limit = getCommentLimit(request, num_entities);
+
+    comments = new ArrayList<>();
+    for(Entity entity : results.asIterable(FetchOptions.Builder.withLimit(comment_limit))){
+        String comment = (String) entity.getProperty("comment");
+        comments.add(comment);
+    }
+
+    String json = convertToJsonUsingGson();
+    response.setContentType("application/json;");
+    response.getWriter().println(json);
+  }
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -53,29 +76,30 @@ public class DataServlet extends HttpServlet {
     response.sendRedirect(redirect_location);
   }
 
-  @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException { 
-    Query query = new Query("Message").addSort("timestamp", SortDirection.DESCENDING);
-    
-    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-    PreparedQuery results = datastore.prepare(query);
-
-    comments = new ArrayList<>();
-    for(Entity entity : results.asIterable()){
-        String comment = (String) entity.getProperty("comment");
-        comments.add(comment);
-    }
-
-    String json = convertToJsonUsingGson();
-    response.setContentType("application/json;");
-    response.getWriter().println(json);
-  }
 
   /** Converts message of arrays into json fromat */
-  /** Deprecated */
   private String convertToJsonUsingGson(){
     String json = new Gson().toJson(comments);
     return json;
+  }
+
+  /**Returns the number of comments the user wants to display, or -1 if number was invalid */
+  private int getCommentLimit(HttpServletRequest request, int num_entities){
+    String comment_limit_string = request.getParameter("num-comments");
+      
+    //Convert the input to an int
+    int comment_limit;
+    try{
+      comment_limit = Integer.parseInt(comment_limit_string);
+      } catch(NumberFormatException e) {
+          System.err.println("Could not convert to int: " + comment_limit_string);
+          return num_entities;
+      }
+
+    if(comment_limit > num_entities ){
+      return num_entities;
+    }
+    return comment_limit;
   }
 } 
 

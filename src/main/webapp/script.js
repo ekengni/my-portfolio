@@ -39,27 +39,65 @@ function createMap() {
       {center: {lat: 37.4220, lng: -122.084}, zoom: 16});
 }
 
+/** Deprecated */
 async function getGreetingAsyncAwait(){
     const response = await fetch('/data');
     const quote = await response.text();
     document.getElementById('quote-container').innerText = quote;
 }
 
-function getServerMessages(){
-    fetch('/data').then(response => response.json()).then((messages) => {
-        const messagesListElement= document.getElementById('quote-container');
-        const numToDisplay = 4;
-        var i;
-        for(i = 0; i < Math.min(numToDisplay, messages.length); i++){
-            messagesListElement.appendChild(
-            createListElement(messages[i]));
-        }
-    });
+async function getServerMessages(){
+  const commentLimit = document.getElementById('display-number').value;
+
+  const response = await fetch('/data?num-comments='+ commentLimit);
+  const messages = await response.json();
+  const messagesListElement= document.getElementById('quote-container');
+  messagesListElement.innerHTML = '';
+
+  var i;
+  for(i = 0; i < messages.length ; i++){
+    messagesListElement.appendChild(
+    createListElement(messages[i]));
+  }
+  
+   //Clear List Element and Database
+  deleteListElement(messages, messagesListElement);
 }
 
-function createListElement(text) {
+function createListElement(message) {
   const liElement = document.createElement('li');
-  liElement.innerText = text;
+  liElement.innerText = message;
+
+
+  /*headElement = document.createElement('h2');
+  const headElement.innerTex; */
   return liElement;
 }
 
+function deleteListElement(messages, messagesListElement) {
+  const deleteButtonContainer = document.getElementById('delete-button');
+  deleteButtonContainer.innerHTML='';
+  const deleteButtonElement = document.createElement('button');
+  
+  deleteButtonElement.innerText = 'Clear Comments from Database';
+  deleteButtonElement.addEventListener('click', () =>{
+    var i;
+    for(i = 0; i < messages.length; i++){
+      deleteMessages(messages[i]);
+    }
+    deleteButtonContainer.remove();
+    messagesListElement.innerText='';
+
+  });
+
+ deleteButtonContainer.append(deleteButtonElement);
+
+}
+
+function deleteMessages(message) {
+    fetch('/delete-data', {method: 'POST'}); 
+}
+
+
+/** Add Delete Function so that after it prints all the comments. There is a delete button
+Under the Comment Section. That delete Button will clear t */

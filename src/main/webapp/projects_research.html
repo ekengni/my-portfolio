@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title> API stuff</title>
+    <title>Features</title>
     <link rel="stylesheet" href="style.css">
      <link 
     href="https://fonts.googleapis.com/css2?family=Manrope&family=Ubuntu&family=Chelsea+Market&display=swap"
@@ -62,10 +62,11 @@
     <p> This is where I will experimented with a an API.
         enjoy :D </p>
     <div id="map"></div>
-    <p> Click Button to see your last 4 comments </p>
+    <p> How many comments would you like to display?</p>
+    <input type="number" name ="display-number" id="display-number" min ="1">
     <button onclick = "getServerMessages()">Servlet Demo </button>
     <ul id="quote-container"></ul>
-
+    <div id ="delete-button"></div>
     </div>
   </body>
 </html>
