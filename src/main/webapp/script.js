@@ -68,7 +68,6 @@ function createListElement(message) {
   const liElement = document.createElement('li');
   liElement.innerText = message;
 
-
   /*headElement = document.createElement('h2');
   const headElement.innerTex; */
   return liElement;
@@ -91,7 +90,6 @@ function deleteListElement(messages, messagesListElement) {
   });
 
  deleteButtonContainer.append(deleteButtonElement);
-
 }
 
 function deleteMessages(message) {

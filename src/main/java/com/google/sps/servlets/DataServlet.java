@@ -30,14 +30,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Servlet that returns some example content. TODO: modify this file to handle comments data */
+/** Servlet that creates and lists comment data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
   static final String comment_id = "comment-input";
   static final String redirect_location = "/comment.html";
   private List <String> comments;
   
-  
+  /** Responsible for creating new comments */
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException { 
     Query query = new Query("Message").addSort("timestamp", SortDirection.DESCENDING);
@@ -58,7 +58,8 @@ public class DataServlet extends HttpServlet {
     response.setContentType("application/json;");
     response.getWriter().println(json);
   }
-
+  
+  /**Responsible for listing comments */
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     String comment = request.getParameter(comment_id);
@@ -87,7 +88,7 @@ public class DataServlet extends HttpServlet {
   private int getCommentLimit(HttpServletRequest request, int num_entities){
     String comment_limit_string = request.getParameter("num-comments");
       
-    //Convert the input to an int
+    //Convert the comment_limit to an int
     int comment_limit;
     try{
       comment_limit = Integer.parseInt(comment_limit_string);
