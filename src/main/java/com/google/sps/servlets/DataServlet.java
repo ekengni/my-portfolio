@@ -34,11 +34,11 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
   static final String COMMENT_ID = "comment-input";
+  static final String COMMENT_LIMIT = "comment-limit";
   static final String DATASTORE_COMMENT = "comment";
   static final String DATASTORE_MESSAGE = "Message";
   static final String DATASTORE_TIMESTAMP = "timestamp";
   static final String REDIRECT_LOCATION = "/comment.html";
-  static final String COMMENT_LIMIT = "comment-limit";
 
   private List <String> comments;
   

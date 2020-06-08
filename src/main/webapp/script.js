@@ -86,7 +86,6 @@ function deleteListElement(messages, messagesListElement) {
     }
     deleteButtonContainer.remove();
     messagesListElement.innerText='';
-
   });
 
  deleteButtonContainer.append(deleteButtonElement);
