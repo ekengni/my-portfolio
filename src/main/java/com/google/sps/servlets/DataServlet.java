@@ -33,14 +33,19 @@ import javax.servlet.http.HttpServletResponse;
 /** Servlet that creates and lists comment data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
-  static final String comment_id = "comment-input";
-  static final String redirect_location = "/comment.html";
+  static final String COMMENT_ID = "comment-input";
+  static final String DATASTORE_COMMENT = "comment";
+  static final String DATASTORE_MESSAGE = "Message";
+  static final String DATASTORE_TIMESTAMP = "timestamp";
+  static final String REDIRECT_LOCATION = "/comment.html";
+  static final String COMMENT_LIMIT = "comment-limit";
+
   private List <String> comments;
   
   /** Responsible for creating new comments */
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException { 
-    Query query = new Query("Message").addSort("timestamp", SortDirection.DESCENDING);
+    Query query = new Query(DATASTORE_MESSAGE).addSort(DATASTORE_TIMESTAMP, SortDirection.DESCENDING);
     
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
@@ -50,8 +55,8 @@ public class DataServlet extends HttpServlet {
 
     comments = new ArrayList<>();
     for(Entity entity : results.asIterable(FetchOptions.Builder.withLimit(comment_limit))){
-        String comment = (String) entity.getProperty("comment");
-        comments.add(comment);
+      String comment = (String) entity.getProperty(DATASTORE_COMMENT);
+      comments.add(comment);
     }
 
     String json = convertToJsonUsingGson();
@@ -62,19 +67,19 @@ public class DataServlet extends HttpServlet {
   /**Responsible for listing comments */
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    String comment = request.getParameter(comment_id);
+    String comment = request.getParameter(COMMENT_ID);
     long timestamp = System.currentTimeMillis();
 
     //Create Entity
-    Entity commentEntity = new Entity("Message");
-    commentEntity.setProperty("comment", comment);
-    commentEntity.setProperty("timestamp", timestamp);
+    Entity commentEntity = new Entity(DATASTORE_MESSAGE);
+    commentEntity.setProperty(DATASTORE_COMMENT, comment);
+    commentEntity.setProperty(DATASTORE_TIMESTAMP, timestamp);
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(commentEntity);
 
     response.setContentType("text/html;");
-    response.sendRedirect(redirect_location);
+    response.sendRedirect(REDIRECT_LOCATION);
   }
 
 
@@ -86,7 +91,7 @@ public class DataServlet extends HttpServlet {
 
   /**Returns the number of comments the user wants to display, or -1 if number was invalid */
   private int getCommentLimit(HttpServletRequest request, int num_entities){
-    String comment_limit_string = request.getParameter("num-comments");
+    String comment_limit_string = request.getParameter(COMMENT_LIMIT);
       
     //Convert the comment_limit to an int
     int comment_limit;

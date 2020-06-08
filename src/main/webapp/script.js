@@ -49,7 +49,7 @@ async function getGreetingAsyncAwait(){
 async function getServerMessages(){
   const commentLimit = document.getElementById('display-number').value;
 
-  const response = await fetch('/data?num-comments='+ commentLimit);
+  const response = await fetch('/data?comment-limit='+ commentLimit);
   const messages = await response.json();
   const messagesListElement= document.getElementById('quote-container');
   messagesListElement.innerHTML = '';
@@ -93,9 +93,5 @@ function deleteListElement(messages, messagesListElement) {
 }
 
 function deleteMessages(message) {
-    fetch('/delete-data', {method: 'POST'}); 
+    fetch('/delete-data', {method: 'DELETE'}); 
 }
-
-
-/** Add Delete Function so that after it prints all the comments. There is a delete button
-Under the Comment Section. That delete Button will clear t */
